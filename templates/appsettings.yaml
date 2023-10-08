@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appsettings
+data:
+  appsettings.json: |
+    {
+      "ConnectionStrings": {
+        "PgConnection": "server={{ .Values.application.dbHost }}; port={{ .Values.application.dbPort }}; database={{ .Values.application.dbName }}; user id={{ .Values.application.dbUsername }}; password={{ .Values.application.dbPassword }};"
+      },
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+    "AllowedHosts": "*"
+    }
